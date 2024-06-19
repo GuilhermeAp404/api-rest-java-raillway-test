@@ -29,6 +29,8 @@ public class User {
         this.news = news;
     }
 
+    public User(){}
+
     public User(String name, Account account, Card card, List<Feature> features, List<News> news) {
         this.name=name;
         this.account = account;
