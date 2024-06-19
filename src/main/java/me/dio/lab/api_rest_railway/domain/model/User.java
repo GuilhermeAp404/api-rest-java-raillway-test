@@ -1,24 +1,24 @@
 package me.dio.lab.api_rest_railway.domain.model;
 
+import jakarta.persistence.*;
+
 import java.util.List;
 
+@Entity
+@Table(name="users")
 public class User {
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    private long id;
     private String name;
+    @OneToOne(cascade = CascadeType.ALL)
     private  Account account;
+    @OneToOne(cascade = CascadeType.ALL)
     private Card card;
+    @OneToMany(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
     private List<Feature> features;
+    @OneToMany(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
     private List<News> news;
-
-    public User() {
-    }
-
-    public User(String name, Account account, Card card, List<Feature> features, List<News> news) {
-        this.name = name;
-        this.account = account;
-        this.card = card;
-        this.features = features;
-        this.news = news;
-    }
 
     public String getName() {
         return name;

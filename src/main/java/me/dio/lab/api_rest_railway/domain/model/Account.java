@@ -1,20 +1,21 @@
 package me.dio.lab.api_rest_railway.domain.model;
 
+import jakarta.persistence.*;
+
+@Entity
+@Table(name = "accounts")
 public class Account {
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    private long id;
+    @Column(unique = true)
     private String number;
     private String agency;
+    @Column(precision = 13, scale = 2)
     private float balance;
+    @Column(name ="additional_limit", precision = 13, scale = 2)
     private float limit;
 
-    public Account() {
-    }
-
-    public Account(String number, String agency, float balance, float limit) {
-        this.number = number;
-        this.agency = agency;
-        this.balance = balance;
-        this.limit = limit;
-    }
 
     public String getNumber() {
         return number;

@@ -1,15 +1,27 @@
 package me.dio.lab.api_rest_railway.domain.model;
 
-public class Card {
-    private String number;
-    private float limit;
+import jakarta.persistence.*;
 
-    public Card() {
+import java.math.BigDecimal;
+
+@Entity
+@Table(name="cards")
+public class Card {
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    private Long id;
+    @Column(unique = true)
+    private String number;
+    @Column(name = "available_limit",precision = 13, scale = 2)
+    private BigDecimal limit;
+
+
+    public Long getId() {
+        return id;
     }
 
-    public Card(String number, float limit) {
-        this.number = number;
-        this.limit = limit;
+    public void setId(Long id) {
+        this.id = id;
     }
 
     public String getNumber() {
