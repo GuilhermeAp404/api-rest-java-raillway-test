@@ -32,11 +32,11 @@ public class Card {
         this.number = number;
     }
 
-    public float getLimit() {
+    public BigDecimal getLimit() {
         return limit;
     }
 
-    public void setLimit(float limit) {
+    public void setLimit(BigDecimal limit) {
         this.limit = limit;
     }
 }
