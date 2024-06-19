@@ -30,6 +30,12 @@ dependencies {
 
 }
 
+tasks.jar {
+	manifest {
+		attributes["main-Class"]= "me.dio.lab.api_rest_railway.ApiRestRailwayApplication"
+	}
+}
+
 tasks.named('test') {
 	useJUnitPlatform()
 }
