@@ -2,6 +2,8 @@ package me.dio.lab.api_rest_railway.domain.model;
 
 import jakarta.persistence.*;
 
+import java.math.BigDecimal;
+
 @Entity
 @Table(name = "accounts")
 public class Account {
@@ -12,9 +14,9 @@ public class Account {
     private String number;
     private String agency;
     @Column(precision = 13, scale = 2)
-    private float balance;
+    private BigDecimal  balance;
     @Column(name ="additional_limit", precision = 13, scale = 2)
-    private float limit;
+    private BigDecimal limit;
 
 
     public String getNumber() {
@@ -33,19 +35,19 @@ public class Account {
         this.agency = agency;
     }
 
-    public float getBalance() {
+    public BigDecimal  getBalance() {
         return balance;
     }
 
-    public void setBalance(float balance) {
+    public void setBalance(BigDecimal  balance) {
         this.balance = balance;
     }
 
-    public float getLimit() {
+    public BigDecimal  getLimit() {
         return limit;
     }
 
-    public void setLimit(float limit) {
+    public void setLimit(BigDecimal  limit) {
         this.limit = limit;
     }
 }
